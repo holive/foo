@@ -1,0 +1,25 @@
+{
+  "foods": [
+    {
+      "id": "1",
+      "foodName": "Avocado",
+      "calories": 200,
+      "weekDays": ["sun", "wed", "fri"],
+      "foodType": "fat"
+    },
+    {
+      "id": "2",
+      "foodName": "Pizza",
+      "calories": 900,
+      "weekDays": ["mon", "sat"],
+      "foodType": "carbohydrate"
+    },
+    {
+      "id": "3",
+      "foodName": "steak",
+      "calories": 270,
+      "weekDays": ["tue", "thu"],
+      "foodType": "protein"
+    }
+  ]
+}
