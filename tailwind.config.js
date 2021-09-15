@@ -19,7 +19,8 @@ module.exports = {
       primary: '#ac6dde',
       white: 'white',
       gray: {
-        100: '#fcfcfc'
+        100: '#fcfcfc',
+        500: 'rgba(107,114,128,.75)'
       },
       black: {
         100: '#333'
@@ -31,5 +32,5 @@ module.exports = {
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [require('@tailwindcss/forms')]
 }
