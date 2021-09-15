@@ -1,9 +1,13 @@
+import '@/presentation/styles/globals.scss'
+
 import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 
+import Router from './routes/router'
+
 ReactDOM.render(
   <StrictMode>
-    <h1>Hello</h1>
+    <Router />
   </StrictMode>,
   document.getElementById('main')
 )
