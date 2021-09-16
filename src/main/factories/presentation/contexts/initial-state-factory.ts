@@ -1,6 +1,9 @@
 import { useState } from 'react'
 
-import { makeFetchFoodListFactory } from '@/main/factories/usecases'
+import {
+  makeFetchFoodListFactory,
+  makePostFoodItem
+} from '@/main/factories/usecases'
 import { TAppContext } from '@/presentation/contexts'
 
 export const makeInitialState = (): TAppContext => {
@@ -8,6 +11,7 @@ export const makeInitialState = (): TAppContext => {
 
   return {
     fetchFoodList: makeFetchFoodListFactory(),
+    postFoodItem: makePostFoodItem(),
     openModal,
     setOpenModal
   }

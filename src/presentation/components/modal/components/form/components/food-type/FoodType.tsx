@@ -23,6 +23,7 @@ export const FoodType: React.FC = () => {
             <input
               checked={selectedType === type}
               onClick={handleChange}
+              onChange={() => null}
               type="checkbox"
               name="foodType"
               value={type}

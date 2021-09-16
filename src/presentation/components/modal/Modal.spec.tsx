@@ -13,7 +13,8 @@ const makeSut = (openModal = false): SutTypes => {
       value={{
         openModal,
         setOpenModal: jest.fn(),
-        fetchFoodList: { loadAll: jest.fn() }
+        fetchFoodList: { loadAll: jest.fn() },
+        postFoodItem: { postItem: jest.fn() }
       }}
     >
       <Modal />
@@ -25,11 +26,6 @@ const makeSut = (openModal = false): SutTypes => {
 
 describe('Modal Component', () => {
   test('Should not be present on first render', async () => {
-    makeSut()
-    expect(screen.queryByTestId('modal')).not.toBeInTheDocument()
-  })
-
-  test('Should disable save button if fields are empty', async () => {
     makeSut()
     expect(screen.queryByTestId('modal')).not.toBeInTheDocument()
   })

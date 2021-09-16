@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
-import { FetchFoodList } from '@/domain/usecases/food-list'
+import { FetchFoodList } from '@/domain/usecases'
+import { AppContext } from '@/presentation/contexts'
 
-import { FoodType } from './components/food-type'
-import { WeekDays } from './components/weekdays'
+import { FoodType, WeekDays } from './components'
 
 export const Form: React.FC<{
   setOpen: (arg: boolean) => void
 }> = ({ setOpen }) => {
+  const { postFoodItem } = useContext(AppContext)
   const [error, setError] = useState('')
 
   const handleSubmit = (e: React.FormEvent): void => {
@@ -26,9 +27,12 @@ export const Form: React.FC<{
       return
     }
 
-    // TODO: post the data
-    console.log(weekDaysFields)
-    setOpen(false)
+    postFoodItem
+      .postItem(weekDaysFields)
+      .then((data) => {
+        setOpen(false)
+      })
+      .catch((error) => console.log(error))
   }
 
   return (
