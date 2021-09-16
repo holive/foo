@@ -5,9 +5,7 @@ import { AppContext } from '@/presentation/contexts'
 
 import { Modal } from './Modal'
 
-type SutTypes = {}
-
-const makeSut = (openModal = false): SutTypes => {
+const makeSut = (openModal = false): void => {
   render(
     <AppContext.Provider
       value={{
@@ -22,8 +20,6 @@ const makeSut = (openModal = false): SutTypes => {
       <Modal />
     </AppContext.Provider>
   )
-
-  return {}
 }
 
 describe('Modal Component', () => {

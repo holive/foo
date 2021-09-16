@@ -8,7 +8,7 @@ import { FoodType, WeekDays } from './components'
 export const Form: React.FC<{
   setOpen: (arg: boolean) => void
 }> = ({ setOpen }) => {
-  const { postFoodItem } = useContext(AppContext)
+  const { postFoodItem, setPostList, fetchFoodList } = useContext(AppContext)
   const [error, setError] = useState('')
 
   const handleSubmit = (e: React.FormEvent): void => {
@@ -29,10 +29,13 @@ export const Form: React.FC<{
 
     postFoodItem
       .postItem(weekDaysFields)
-      .then((data) => {
-        setOpen(false)
+      .then((_data) => {
+        fetchFoodList.loadAll().then((posts) => {
+          setPostList(posts)
+          setOpen(false)
+        })
       })
-      .catch((error) => console.log(error))
+      .catch((err) => console.log(err))
   }
 
   return (
