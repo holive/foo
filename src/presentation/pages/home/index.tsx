@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 
-import { FetchFoodList } from '@/domain/usecases/food-list'
 import {
   FilterByWeekDay,
   FoodList,
@@ -8,12 +7,11 @@ import {
   Header,
   Modal
 } from '@/presentation/components'
+import { AppContext } from '@/presentation/contexts'
 
-type Props = {
-  fetchFoodList: FetchFoodList
-}
+const Home: React.FC = () => {
+  const { fetchFoodList } = useContext(AppContext)
 
-const Home: React.FC<Props> = ({ fetchFoodList }: Props) => {
   useEffect(() => {
     fetchFoodList.loadAll().then((result) => console.log(result))
   }, [])

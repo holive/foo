@@ -4,7 +4,7 @@ import { makeAxiosHttpClient } from '@/main/factories/http'
 
 export const makeFetchFoodListFactory = (): FetchFoodList => {
   return RemoteFetchFoodList(
-    'http://localhost:3000/foods',
+    'http://localhost:3000/foods', // todo: add as env
     makeAxiosHttpClient()
   )
 }
