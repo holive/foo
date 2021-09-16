@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-filter {
+    @apply p-2 lg:px-4 text-primary text-center border border-solid border-primary hover:text-white hover:bg-primary transition-colors duration-300 mt-1 md:mt-0 border-r-0 capitalize;
+  }
+}

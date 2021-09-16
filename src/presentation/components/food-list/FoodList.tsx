@@ -29,7 +29,7 @@ export const FoodList: React.FC = () => {
 
     return (
       <div className="pb-4 px-20 md:px-40 bg-blue-100">
-        <div className="bg-white p-4 rounded-lg shadow-lg flex align-middle">
+        <div className="bg-white p-4 rounded shadow-lg flex align-middle">
           <div className="w-1/12 flex justify-center align-middle">
             <span className={`h-3 w-3 bg-${color} rounded-full self-center`} />
           </div>
