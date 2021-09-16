@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
+import { FetchFoodList } from '@/domain/usecases/food-list'
 import {
   FilterByWeekDay,
   FoodList,
@@ -8,7 +9,15 @@ import {
   Modal
 } from '@/presentation/components'
 
-const Home: React.FC = () => {
+type Props = {
+  fetchFoodList: FetchFoodList
+}
+
+const Home: React.FC<Props> = ({ fetchFoodList }: Props) => {
+  useEffect(() => {
+    fetchFoodList.loadAll().then((result) => console.log(result))
+  }, [])
+
   return (
     <>
       <div className="min-h-screen bg-gray-100">
