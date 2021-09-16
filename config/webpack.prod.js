@@ -43,7 +43,7 @@ module.exports = merge(common, {
       chunkFilename: '[id].css'
     }),
     new FaviconsWebpackPlugin({
-      logo: './public/favicon.png'
+      logo: './public/favicon.svg'
     })
   ],
   optimization: {

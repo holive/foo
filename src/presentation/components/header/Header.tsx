@@ -12,7 +12,10 @@ export const Header: React.FC = () => {
       <nav className="py-2 md:py-6">
         <div className="container px-4 mx-auto md:flex md:items-center">
           <div className="flex justify-between items-center">
-            <Logo />
+            <Logo />{' '}
+            <span className="text-4xl text-primary font-bold ml-2 select-none">
+              Foo.
+            </span>
           </div>
 
           <div

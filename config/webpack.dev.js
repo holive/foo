@@ -42,7 +42,7 @@ module.exports = merge(common, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new FaviconsWebpackPlugin({
-      logo: './public/favicon.png'
+      logo: './public/favicon.svg'
     })
   ]
 })

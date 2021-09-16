@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-import { FetchFoodList } from '@/domain/usecases'
+import { PostFoodItem } from '@/domain/usecases'
 import { AppContext } from '@/presentation/contexts'
 
 import { FoodType, WeekDays } from './components'
@@ -15,7 +15,7 @@ export const Form: React.FC<{
     e.preventDefault()
 
     const formData = new FormData(e.target as HTMLFormElement)
-    const weekDaysFields: Omit<FetchFoodList.Model, 'id'> = {
+    const weekDaysFields: PostFoodItem.Model = {
       foodName: formData.get('food-name') as string,
       calories: +formData.get('calories'),
       weekDays: formData.getAll('weekDays') as string[],

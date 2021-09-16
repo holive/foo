@@ -31,7 +31,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(paths.src, '../config/template.html'),
-      title: 'Foo'
+      title: 'Foo.'
     }),
     new MiniCssExtractPlugin({
       filename: 'main-bundle-[hash].css'
