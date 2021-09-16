@@ -26,7 +26,8 @@ module.exports = {
         100: '#333'
       },
       green: '#6DDEAC',
-      yellow: '#DECB6D'
+      yellow: '#DECB6D',
+      red: '#f15a4f'
     }
   },
   variants: {

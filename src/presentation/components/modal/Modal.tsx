@@ -1,6 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { PlusIcon } from '@heroicons/react/outline'
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useContext } from 'react'
+
+import { AppContext } from '@/presentation/contexts'
 
 import { Form } from './components'
 
@@ -8,16 +10,19 @@ export const weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 export const foodType = ['protein', 'carbohydrate', 'fat']
 
 export const Modal: React.FC = () => {
-  const [open, setOpen] = useState(true)
+  const { openModal, setOpenModal } = useContext(AppContext)
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={openModal} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
-        onClose={setOpen}
+        onClose={setOpenModal}
       >
-        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div
+          className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+          data-testid="modal"
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -49,7 +54,7 @@ export const Modal: React.FC = () => {
             <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full pt-1.5">
+                  <div className="mt-3 text-center sm:mt-0 sm:text-left w-full pt-1.5">
                     <Dialog.Title
                       as="h3"
                       className="text-lg leading-6 font-medium text-black-100"
@@ -62,7 +67,7 @@ export const Modal: React.FC = () => {
                       Let's add a new item
                     </Dialog.Title>
 
-                    <Form setOpen={setOpen} />
+                    <Form setOpen={setOpenModal} />
                   </div>
                 </div>
               </div>

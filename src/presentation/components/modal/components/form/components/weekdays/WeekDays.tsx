@@ -14,9 +14,11 @@ export const WeekDays: React.FC = () => {
           <label key={i} className="inline-flex items-center mr-4">
             <input
               type="checkbox"
+              name="weekDays"
+              value={day}
               className="form-checkbox text-primary rounded-sm mr-1"
             />
-            <span className="text-gray-500 capitalize">{day}</span>
+            <span className="text-gray-500 capitalize select-none">{day}</span>
           </label>
         ))}
       </div>

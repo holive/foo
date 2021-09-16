@@ -4,6 +4,7 @@ export interface FetchFoodList {
 
 export namespace FetchFoodList {
   export type Model = {
+    id: number
     foodName: string
     calories: number
     weekDays: string[]

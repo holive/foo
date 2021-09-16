@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { FetchFoodList } from '@/domain/usecases/food-list'
 
 import { FoodType } from './components/food-type'
 import { WeekDays } from './components/weekdays'
@@ -6,8 +8,31 @@ import { WeekDays } from './components/weekdays'
 export const Form: React.FC<{
   setOpen: (arg: boolean) => void
 }> = ({ setOpen }) => {
+  const [error, setError] = useState('')
+
+  const handleSubmit = (e: React.FormEvent): void => {
+    e.preventDefault()
+
+    const formData = new FormData(e.target as HTMLFormElement)
+    const weekDaysFields: Omit<FetchFoodList.Model, 'id'> = {
+      foodName: formData.get('food-name') as string,
+      calories: +formData.get('calories'),
+      weekDays: formData.getAll('weekDays') as string[],
+      foodType: formData.getAll('foodType').join()
+    }
+
+    if (!weekDaysFields.foodName) {
+      setError('Please, check the fields and try again.')
+      return
+    }
+
+    // TODO: post the data
+    console.log(weekDaysFields)
+    setOpen(false)
+  }
+
   return (
-    <form action="#" method="POST">
+    <form onSubmit={handleSubmit}>
       <div className="pt-5 pb-2.5 bg-white">
         <div className="grid grid-cols-6 gap-3">
           <div className="col-span-6">
@@ -18,6 +43,7 @@ export const Form: React.FC<{
               Food name
             </label>
             <input
+              onChange={() => setError('')}
               type="text"
               name="food-name"
               id="food-name"
@@ -36,6 +62,7 @@ export const Form: React.FC<{
               type="number"
               name="calories"
               id="calories"
+              defaultValue={0}
               className="mt-1 focus:ring-primary focus:border-gray-500 block w-full shadow-sm sm:text-sm border-primary rounded-md"
             />
           </div>
@@ -51,9 +78,8 @@ export const Form: React.FC<{
 
         <div className="mt-6 bg-gray-50 sm:flex sm:flex-row-reverse">
           <button
-            type="button"
+            type="submit"
             className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:opacity-90 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm uppercase transition duration-300"
-            onClick={() => setOpen(false)}
           >
             Save
           </button>
@@ -64,6 +90,8 @@ export const Form: React.FC<{
           >
             Cancel
           </button>
+
+          <span className="self-center text-red pr-1">{error}</span>
         </div>
       </div>
     </form>
