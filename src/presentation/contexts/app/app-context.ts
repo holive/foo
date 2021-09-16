@@ -10,6 +10,11 @@ export type TAppContext = {
   setPostList: (value: FetchFoodList.Model[]) => void
   openModal: boolean
   setOpenModal: (value: boolean) => void
+  currentPostsFilter: Record<string, string>
+  setCurrentPostsFilter: (
+    value: Record<string, string>,
+    reset?: boolean
+  ) => void
 }
 
 export default createContext<TAppContext>(null)

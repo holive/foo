@@ -8,6 +8,11 @@ import { Form } from './components'
 
 export const weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 export const foodType = ['protein', 'carbohydrate', 'fat']
+export const colorByType = {
+  [foodType[0]]: '#6DDEAC',
+  [foodType[1]]: '#AC6DDE',
+  [foodType[2]]: '#DECB6D'
+}
 
 export const Modal: React.FC = () => {
   const { openModal, setOpenModal } = useContext(AppContext)

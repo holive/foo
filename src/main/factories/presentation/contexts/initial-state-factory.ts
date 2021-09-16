@@ -3,15 +3,23 @@ import { useState } from 'react'
 import { FetchFoodList } from '@/domain/usecases'
 import { makeAxiosHttpClient } from '@/main/factories/http'
 import {
+  makeDeleteFoodItem,
   makeFetchFoodListFactory,
   makePostFoodItem
 } from '@/main/factories/usecases'
-import { makeDeleteFoodItem } from '@/main/factories/usecases/makeDeleteFoodItemFactory'
 import { TAppContext } from '@/presentation/contexts'
 
-export const makeInitialState = (): TAppContext => {
+export const MakeInitialState = (): TAppContext => {
   const [openModal, setOpenModal] = useState(false)
   const [postList, setPostList] = useState<FetchFoodList.Model[]>([])
+  const [currentPostsFilter, _setCurrentPostsFilter] = useState({})
+  const setCurrentPostsFilter = (data: Record<string, string>): void => {
+    _setCurrentPostsFilter((old) => ({
+      ...old,
+      ...data
+    }))
+  }
+
   const httpClient = makeAxiosHttpClient()
 
   return {
@@ -21,6 +29,8 @@ export const makeInitialState = (): TAppContext => {
     postList,
     setPostList,
     openModal,
-    setOpenModal
+    setOpenModal,
+    currentPostsFilter,
+    setCurrentPostsFilter
   }
 }

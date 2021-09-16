@@ -1,34 +1,36 @@
-import { Pie } from '@nivo/pie'
+import { Pie, PieTooltipProps } from '@nivo/pie'
 import React from 'react'
 
-const data = [
-  {
-    id: 'Protein',
-    label: 'Protein',
-    value: 573,
-    color: '#AC6DDE'
-  },
-  {
-    id: 'Fat',
-    label: 'Fat',
-    value: 95,
-    color: '#DECB6D'
-  },
-  {
-    id: 'Carbohydrate',
-    label: 'Carbohydrate',
-    value: 197,
-    color: '#6DDEAC'
-  }
-]
+import { Data, FoodTypeChartHook } from './FoodTypeChartHook'
 
 export const FoodTypeChart: React.FC = () => {
+  const {
+    toPercentage,
+    newData,
+    formatArcLinkLabel,
+    formatArcLabel,
+    handleClick
+  } = FoodTypeChartHook()
+
+  const Tooltip = (
+    data: React.PropsWithChildren<PieTooltipProps<Data>>
+  ): JSX.Element => (
+    <div className="py-1 px-2 shadow bg-white rounded text-xs">
+      Total: <b>{data.datum.data.totalItems}</b>
+    </div>
+  )
+
   return (
     <div className="container mx-auto">
       <div className="flex justify-center">
         <Pie
-          data={data}
-          margin={{ top: 20, right: 80, bottom: 20, left: 80 }}
+          onClick={handleClick}
+          valueFormat={toPercentage}
+          arcLabel={formatArcLabel}
+          arcLinkLabel={formatArcLinkLabel}
+          tooltip={Tooltip}
+          data={newData}
+          margin={{ top: 20, right: 80, bottom: 30, left: 80 }}
           innerRadius={0}
           padAngle={0.7}
           cornerRadius={2}
