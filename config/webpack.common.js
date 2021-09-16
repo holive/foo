@@ -1,3 +1,4 @@
+const { DefinePlugin } = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./paths')
@@ -28,6 +29,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new DefinePlugin({
+      'process.env.API_URL': JSON.stringify('http://localhost:3000/foods')
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(paths.src, '../config/template.html'),

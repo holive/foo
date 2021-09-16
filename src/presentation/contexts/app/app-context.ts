@@ -1,10 +1,11 @@
 import { createContext } from 'react'
 
-import { FetchFoodList, PostFoodItem } from '@/domain/usecases'
+import { DeleteFoodItem, FetchFoodList, PostFoodItem } from '@/domain/usecases'
 
 export type TAppContext = {
   fetchFoodList: FetchFoodList
   postFoodItem: PostFoodItem
+  deleteFoodItem: DeleteFoodItem
   postList: FetchFoodList.Model[]
   setPostList: (value: FetchFoodList.Model[]) => void
   openModal: boolean

@@ -14,7 +14,8 @@ const makeSut = (openModal = false): void => {
         setPostList: jest.fn(),
         setOpenModal: jest.fn(),
         fetchFoodList: { loadAll: jest.fn() },
-        postFoodItem: { postItem: jest.fn() }
+        postFoodItem: { postItem: jest.fn() },
+        deleteFoodItem: { removeItem: jest.fn() }
       }}
     >
       <Modal />

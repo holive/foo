@@ -1,10 +1,7 @@
-import { RemoteFetchFoodList } from '@/data/usecases'
-import { FetchFoodList } from '@/domain/usecases'
-import { makeAxiosHttpClient } from '@/main/factories/http'
+import { HttpClient } from '@/data/protocols/http'
+import { RemotePostFoodItem } from '@/data/usecases'
+import { PostFoodItem } from '@/domain/usecases'
 
-export const makeFetchFoodListFactory = (): FetchFoodList => {
-  return RemoteFetchFoodList(
-    'http://localhost:3000/foods', // todo: add as env
-    makeAxiosHttpClient()
-  )
+export const makePostFoodItem = (httpClient: HttpClient): PostFoodItem => {
+  return RemotePostFoodItem(process.env.API_URL, httpClient)
 }
