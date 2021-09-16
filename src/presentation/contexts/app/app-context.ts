@@ -2,8 +2,10 @@ import { createContext } from 'react'
 
 import { FetchFoodList } from '@/domain/usecases/food-list'
 
-type Props = {
+export type TAppContext = {
   fetchFoodList: FetchFoodList
+  openModal: boolean
+  setOpenModal: (value: boolean) => void
 }
 
-export default createContext<Props>(null)
+export default createContext<TAppContext>(null)

@@ -1,17 +1,13 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { makeHomePage } from '@/main/factories/pages/home'
-import { makeFetchFoodListFactory } from '@/main/factories/usecases'
+import { makeInitialState } from '@/main/factories/presentation/contexts'
 import { AppContext } from '@/presentation/contexts'
 
-const Router: FC = () => {
+const Router: React.FC = () => {
   return (
-    <AppContext.Provider
-      value={{
-        fetchFoodList: makeFetchFoodListFactory()
-      }}
-    >
+    <AppContext.Provider value={makeInitialState()}>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={makeHomePage} />
