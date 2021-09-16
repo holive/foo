@@ -1,56 +1,77 @@
 {
   "foods": [
     {
-      "id": "2",
       "foodName": "Pizza",
-      "calories": 900,
+      "calories": 221,
       "weekDays": [
-        "mon",
+        "sun",
+        "fri",
         "sat"
       ],
-      "foodType": "carbohydrate"
+      "foodType": "carbohydrate",
+      "id": 1
     },
     {
-      "id": "3",
-      "foodName": "steak",
-      "calories": 270,
+      "foodName": "Potato",
+      "calories": 100,
       "weekDays": [
+        "mon",
+        "tue",
+        "wed",
+        "thu"
+      ],
+      "foodType": "carbohydrate",
+      "id": 2
+    },
+    {
+      "foodName": "Avocado",
+      "calories": 98,
+      "weekDays": [
+        "sun",
+        "mon",
+        "tue",
+        "wed",
+        "thu",
+        "fri",
+        "sat"
+      ],
+      "foodType": "fat",
+      "id": 3
+    },
+    {
+      "foodName": "Steak",
+      "calories": 69,
+      "weekDays": [
+        "sun",
         "tue",
         "thu"
       ],
-      "foodType": "protein"
+      "foodType": "protein",
+      "id": 4
     },
     {
-      "foodName": "Avocado",
-      "calories": 222,
+      "foodName": "Egg",
+      "calories": 40,
       "weekDays": [
-        "mon"
+        "tue",
+        "wed",
+        "fri",
+        "sat"
+      ],
+      "foodType": "protein",
+      "id": 5
+    },
+    {
+      "foodName": "Olive oil",
+      "calories": 0,
+      "weekDays": [
+        "sun",
+        "mon",
+        "wed",
+        "fri"
       ],
       "foodType": "fat",
-      "id": "n1lxTz1"
-    },
-    {
-      "foodName": "Banana",
-      "calories": 0,
-      "weekDays": [
-        "mon"
-      ],
-      "foodType": "protein",
-      "id": "fVjbyfc"
-    },
-    {
-      "foodName": "Avocado",
-      "calories": 0,
-      "weekDays": [],
-      "foodType": "protein",
-      "id": "4k3qxPN"
-    },
-    {
-      "foodName": "Banana",
-      "calories": 0,
-      "weekDays": [],
-      "foodType": "protein",
-      "id": "HC-p5u7"
+      "id": 6
     }
   ]
 }
