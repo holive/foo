@@ -12,6 +12,8 @@ const makeSut = (openModal = false): SutTypes => {
     <AppContext.Provider
       value={{
         openModal,
+        postList: [],
+        setPostList: jest.fn(),
         setOpenModal: jest.fn(),
         fetchFoodList: { loadAll: jest.fn() },
         postFoodItem: { postItem: jest.fn() }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 
 import {
   FilterByWeekDay,
@@ -7,28 +7,17 @@ import {
   Header,
   Modal
 } from '@/presentation/components'
-import { AppContext } from '@/presentation/contexts'
 
-const Home: React.FC = () => {
-  const { fetchFoodList } = useContext(AppContext)
+const Home: React.FC = () => (
+  <div className="min-h-screen bg-gray-100">
+    <Header />
 
-  useEffect(() => {
-    fetchFoodList.loadAll().then((result) => console.log(result))
-  }, [])
+    <FilterByWeekDay />
+    <FoodTypeChart />
+    <FoodList />
 
-  return (
-    <>
-      <div className="min-h-screen bg-gray-100">
-        <Header />
-
-        <FilterByWeekDay />
-        <FoodTypeChart />
-        <FoodList />
-
-        <Modal />
-      </div>
-    </>
-  )
-}
+    <Modal />
+  </div>
+)
 
 export default Home

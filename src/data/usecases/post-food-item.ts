@@ -1,14 +1,14 @@
 import { HttpClient, HttpStatusCode } from '@/data/protocols/http'
 import { UnexpectedError } from '@/domain/errors'
-import { FetchFoodList, PostFoodItem } from '@/domain/usecases'
+import { PostFoodItem } from '@/domain/usecases'
 
 export const RemotePostFoodItem = (
   url: string,
-  httpClient: HttpClient<FetchFoodList.Model[]>
+  httpClient: HttpClient<PostFoodItem.Model>
 ): PostFoodItem => {
   const postItem = async (
     params: PostFoodItem.Model
-  ): Promise<FetchFoodList.Model[]> => {
+  ): Promise<PostFoodItem.Model> => {
     const httpResponse = await httpClient.request({
       url: url,
       method: 'post',
@@ -18,9 +18,9 @@ export const RemotePostFoodItem = (
     switch (httpResponse.statusCode) {
       case HttpStatusCode.OK:
       case HttpStatusCode.CREATED:
-        return httpResponse.body || []
+        return httpResponse.body
       case HttpStatusCode.NO_CONTENT:
-        return []
+        return null
       default:
         throw new UnexpectedError()
     }

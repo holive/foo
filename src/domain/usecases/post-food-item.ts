@@ -1,7 +1,5 @@
-import { FetchFoodList } from './food-list'
-
 export interface PostFoodItem {
-  postItem: (item: PostFoodItem.Model) => Promise<FetchFoodList.Model[]>
+  postItem: (item: PostFoodItem.Model) => Promise<PostFoodItem.Model>
 }
 
 export namespace PostFoodItem {
