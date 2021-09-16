@@ -3,6 +3,7 @@ import React from 'react'
 export const Logo: React.FC = () => {
   return (
     <svg
+      className="shadow rounded-full"
       width="40"
       height="40"
       viewBox="0 0 40 40"

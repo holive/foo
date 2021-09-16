@@ -1,5 +1,5 @@
 export interface FetchFoodList {
-  loadAll: () => Promise<FetchFoodList.Model[]>
+  loadAll: (queryParams?: string) => Promise<FetchFoodList.Model[]>
 }
 
 export namespace FetchFoodList {

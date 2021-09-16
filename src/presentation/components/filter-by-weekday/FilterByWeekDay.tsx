@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import { weekDays } from '@/presentation/components'
+import { AppContext } from '@/presentation/contexts'
 
 export const FilterByWeekDay: React.FC = () => {
+  const { fetchFoodList, setPostList } = useContext(AppContext)
   const options = ['all', ...weekDays]
   const [currentSelected, setCurrentSelected] = useState<string>(options[0])
 
   const handleClick = (value: string): void => {
     if (value === currentSelected) return
+
     setCurrentSelected(value)
+
+    const params = new URLSearchParams({ weekDays_like: value }).toString()
+    const args = value !== options[0] ? `?${params}` : ''
+    fetchFoodList.loadAll(args).then((data) => setPostList(data))
   }
 
   const Button = ({
@@ -44,9 +51,11 @@ export const FilterByWeekDay: React.FC = () => {
         className="flex justify-center rounded-lg text-lg py-10"
         role="group"
       >
-        {options.map((value, i) => (
-          <Button value={value} style={getStyleForPosition(i)} key={i} />
-        ))}
+        <div className="shadow">
+          {options.map((value, i) => (
+            <Button value={value} style={getStyleForPosition(i)} key={i} />
+          ))}
+        </div>
       </div>
     </div>
   )

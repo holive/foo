@@ -8,9 +8,9 @@ export const RemoteFetchFoodList = (
   url: string,
   httpClient: HttpClient<FetchFoodList.Model[]>
 ): FetchFoodList => {
-  const loadAll = async (): Promise<FetchFoodList.Model[]> => {
+  const loadAll = async (queryParams = ''): Promise<FetchFoodList.Model[]> => {
     const httpResponse = await httpClient.request({
-      url: url,
+      url: url + queryParams,
       method: 'get'
     })
 

@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
           >
             <button
               onClick={() => setOpenModal(true)}
-              className="p-2 lg:px-4 md:mx-2 text-primary text-center border border-solid border-primary rounded hover:bg-primary hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1"
+              className="shadow p-2 lg:px-4 md:mx-2 text-primary text-center border border-solid border-primary rounded hover:bg-primary hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1"
             >
               ADD NEW
             </button>

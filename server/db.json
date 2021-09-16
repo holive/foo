@@ -21,16 +21,6 @@
       "foodType": "protein"
     },
     {
-      "foodName": "Banana",
-      "calories": 67,
-      "weekDays": [
-        "sun",
-        "sat"
-      ],
-      "foodType": "carbohydrate",
-      "id": "qPcdwye"
-    },
-    {
       "foodName": "Avocado",
       "calories": 222,
       "weekDays": [
@@ -38,6 +28,24 @@
       ],
       "foodType": "fat",
       "id": "n1lxTz1"
+    },
+    {
+      "foodName": "Banana",
+      "calories": 0,
+      "weekDays": [
+        "tue"
+      ],
+      "foodType": "carbohydrate",
+      "id": "7ORghpW"
+    },
+    {
+      "foodName": "asdf",
+      "calories": 0,
+      "weekDays": [
+        "sat"
+      ],
+      "foodType": "protein",
+      "id": "ppSrf9-"
     }
   ]
 }
